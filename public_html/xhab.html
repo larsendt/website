@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>X-Hab</title>
+        <link rel="stylesheet" href="fonts/Serif/cmun-serif.css">
+        <link rel="stylesheet" href="fonts/Serif Slanted/cmun-serif-slanted.css">
+        <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript"
+            src="js/mathjax-MathJax-78ea6af/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+        </script>
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+        </script>
+    </head>
+    <body>
+        <div id="header">
+            <h2>X-Hab</h2>
+            <div id="nav">
+                <a href="index.html" class="navitem">Home</a>
+                <a href="resume.html" class="navitem">Resume</a>
+                <a href="projects.html">Projects</a>
+            </div>
+        </div>
+        <div id="wrapper">
+            <div id="content">
+                
+
+<div id="xhab">
+    <h1>About X-Hab</h1>
+
+    <p>
+    <a href="http://www.spacegrant.org/xhab">X-Hab</a> is a <a
+        href="http://www.spacegrant.org/">National Space Grant Foundation</a>
+    project. The goal of the project is to develop technologies for human habitats
+    in space and other extreme environments. Multiple universities compete for
+    small grants to prototype systems that solve the challenges of a long-term
+    human presence in space.
+    </p>
+
+    <h1>Our Project</h1>
+
+    <p>
+    I am a part of the second X-Hab team that CU Boulder has put together. For
+    both years of the competition, CU has focused on the technologies needed to
+    grow plants with minimal to zero human access. The lofty goal of the project
+    is to be a partially automated greenhouse sent to Mars ahead of human
+    explorers and colonists for the purpose of growing edible plants.
+    <p>
+
+    <p>There are three primary components to the system:</p>
+    <ul>
+        <li>ROGR - the Remotely Operated Gardening Robot</li>
+        <li>SPOT - Smart POT</li>
+        <li>GUI - the (optionally) remote graphical user interface</li>
+    </ul>
+
+    <p>
+    <span class="big">ROGR</span> is a mobile platform that can travel around
+    an environment to service distributed plant pots. It carries both pure
+    water and a nutrient solution for refilling hydroponic pots. It also has
+    both a lift and a robotic arm for moving and servicing the plants. It is
+    intended to be remotely controlled via the GUI.  </p>
+
+    <div style="margin: auto; width: 560px">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/qVEEsExWFzU" frameborder="0" allowfullscreen></iframe>
+        <p>
+            In the above video, you can see the operation of ROGR's driving
+            system. ROGR uses mechanum wheels that enable full planar motion.
+            Mechanum wheels have rollers on the tread of the wheel that are
+            angled at 45 degrees. The four equations (one for each wheel) are
+            surprisingly elegant.
+
+            $$frontleft = V_d sin(\Theta_d + \frac{\pi}{4}) + V_\Theta$$
+            $$frontright = V_d cos(\Theta_d + \frac{\pi}{4}) - V_\Theta$$
+            $$backleft = V_d cos(\Theta_d + \frac{\pi}{4}) + V_\Theta$$
+            $$backright = V_d sin(\Theta_d + \frac{\pi}{4}) - V_\Theta$$
+
+            Where $V_d$ is translation velocity, $\Theta_d$ is translation angle
+            and $V_\Theta$ is rotation speed.
+        </p>
+    </div>
+
+    <div style="margin: auto; width: 560px">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/dt5l9zBwYZQ" frameborder="0" allowfullscreen></iframe>
+        <p>
+            In this video, you can see ROGR's forklift. Not much to say about it,
+            other than it works pretty well.
+        </p>
+    </div>
+
+    <p>
+    <span class="big">SPOT</span> is an intelligent hydroponic plant pot. It is
+    capable of sustaining plant life independently for up to a week (depending
+    on the variety of the plant and the stage in the plants life cycle). It
+    contains both pure water and nutrient solution reservoirs. The nutrient
+    solution is used in the automated hydroponic system, and the pure water is
+    for maintaining a high humidity environment for the plant. To facilitate
+    the high humidity environment, the SPOT has a clear plastic enclosure with
+    vents for venting oxygen and bringing in carbon dioxide.  </p>
+
+    <p>
+    SPOT provides all necessary light for the plant. White LEDs with very
+    specific spectra provide most of the growth light. Red LEDs are used to
+    stimulate fruit growth when the plant reaches the fruiting stage of its
+    life cycle. SPOT also contains a sophisticated sensor suite for monitoring
+    the quality of the nutrient solution and the suitability of the
+    environment.
+    </p>
+
+    <p>
+    SPOT communicates wirelessly with a central computational hub located
+    on ROGR. SPOT has onboard life cycle management and error detection,
+    but offloading the data to ROGR allows for much more advanced analysis
+    of the various data that SPOT gathers about its systems and its environment.
+    SPOT is intended to be largely autonomous, but also allows for control via
+    the GUI.
+    </p>
+
+    <p>
+    The <span class="big">GUI</span> provides a remote interface for both data
+    visualization and analysis, as well as control of the entire system. It
+    displays multiple video streams from ROGR, and static images from SPOT's
+    camera. It allows the user to view both realtime and historical data from
+    both ROGR and any number of connected SPOTs. It has a realtime interface
+    for driving ROGR and operating its lift and arm.  </p>
+
+    <h1>Github Repositories</h1>
+    <ul>
+        <li><a href="https://github.com/larsendt/xhab-rogr">https://github.com/larsendt/xhab-rogr</a></li>
+        <li><a href="https://github.com/larsendt/xhab-spot">https://github.com/larsendt/xhab-spot</a></li>
+        <li><a href="https://github.com/larsendt/xhab-gui">https://github.com/larsendt/xhab-gui</a></li>
+    </ul>
+</div>
+
+
+            </div>
+        </div>
+    </body>
+</html>
