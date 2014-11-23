@@ -1,0 +1,71 @@
+body {
+    font-family: 'Gentium Book Basic', serif;
+    font-size: 11pt;
+    margin: 0px;
+    color: #221;
+}
+
+#header {
+    background-color: #9E9E9E; // 500
+    border-bottom: #616161; // 700
+    height: 50px;
+}
+
+#header-title {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16pt;
+    color: #fff;
+    opacity: 0.9;
+    padding-left: 30px;
+    height: 50px;
+    line-height: 50px;
+}
+
+#nav {
+    height: 50px;
+    z-index: -1;
+}
+
+#nav-inner {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #EEEEEE;
+    color: #212121;
+    font-size: 10pt;
+    bottom: 0px;
+    border-bottom: thin solid #BDBDBD;
+}
+
+#nav-inner a:link {
+    color: #212121;
+}
+
+#nav-inner a:visited {
+    color: #212121;
+}
+
+.nav-item {
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    float: left;
+}
+
+.nav-item:hover {
+    background-color: #CFD8DC;
+}
+
+#content {
+    width: 85%;
+}
+
+#content-inner {
+    padding: 30px;
+    padding-top: 10px;
+    max-width: 600px;
+    line-height: 1.5em;
+    text-align: justify;
+}
+
+
