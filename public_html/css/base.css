@@ -59,7 +59,6 @@ body {
 }
 
 #content {
-    width: 85%;
 }
 
 #content-inner {
@@ -68,14 +67,14 @@ body {
     max-width: 800px;
     line-height: 2.0em;
     text-align: justify;
+    background-color: #ECEFF1;
+    box-shadow: 2px 2px 8px #37474F;
+    border-radius: 3px;
+    margin: auto;
 }
 
 .content-cell {
-    padding: 25px;
-    background-color: #ECEFF1;
-    border-radius: 3px;
-    margin-bottom: 30px;
-    box-shadow: 2px 2px 8px #37474F;
+    padding: 20px;
 }
 
 .content-cell-title {
