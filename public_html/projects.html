@@ -89,6 +89,9 @@
 
                 <div class="content-cell">
                 <div class="content-cell-title">OpenCL N-Body Simulator</div>
+                <div class="content-cell-subtitle"><a href="https://github.com/larsendt/opencl-nbody">Github</a></div>
+
+                <img src="/img/nbody.png" class="thumb">
 
                 <p>
                 This is probably the prettiest thing I've ever built (maybe
@@ -101,6 +104,28 @@
                 then passes position and velocity and mass of each particle to
                 the OpenCL kernel which calculates the next state. My laptop's
                 560M can do 1024 particles at ~40 FPS.  
+                </p>
+
+                <p><a href="http://youtu.be/lMWt3LCbsYQ">View a demo on Youtube</a></p>
+                <p>The framerate is terrible in this video, but I swear it runs great normally.</p>
+
+                </div>
+
+                <div class="content-cell">
+                <div class="content-cell-title">Hashtable</div>
+                <div class="content-cell-subtitle"><a href="">Github</a></div>
+
+                <img src="/img/hashtable.png" class="thumb">
+
+                <p>
+                I started this project in June 2012 to refresh my C skills.
+                It's a very simple hashtable implementation in pure C. It's
+                reasonably stable and pretty fast. It can do 1 million inserts
+                in about a quarter of a second with static-size keys and a
+                pre-allocated table (Core i5-2430M @ 2.4GHz). 
+                It uses <a href="http://code.google.com/p/smhasher/wiki/MurmurHash">MurmurHash</a> as the
+                internal hashing algorithm. It's BSD licensed (so feel free to
+                use it!).
                 </p>
 
                 </div>

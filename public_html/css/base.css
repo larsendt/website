@@ -71,6 +71,7 @@ body {
     box-shadow: 2px 2px 8px #37474F;
     border-radius: 3px;
     margin: auto;
+    margin-bottom: 25px;
 }
 
 .content-cell {
