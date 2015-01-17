@@ -90,6 +90,19 @@
                 <div class="content-cell">
                 <div class="content-cell-title">OpenCL N-Body Simulator</div>
 
+                <p>
+                This is probably the prettiest thing I've ever built (maybe
+                only contested by the dynamically textured sun or the glsl
+                warping demo). I built it, like the Marching Cubes terrain
+                above, for the Advanced Graphics class. This is the first (and
+                only significant) OpenCL application I've written. The n-body
+                calculations are done entirely in OpenCL. The main C++
+                application stores and draws the state of the particles, and
+                then passes position and velocity and mass of each particle to
+                the OpenCL kernel which calculates the next state. My laptop's
+                560M can do 1024 particles at ~40 FPS.  
+                </p>
+
                 </div>
             </div>
         </div>
