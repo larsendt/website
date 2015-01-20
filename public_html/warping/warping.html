@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset=utf-8">
+        <meta charset="utf-8">
         <title>Warping Demo</title>
         <script src="Detector.js"></script>
         <script src="three.min.js"></script>
@@ -27,6 +27,28 @@
     <body>
         <div id="canvas">
         </div>
+        <script>
+            RENDER_CANVAS = $("#canvas");
+            RENDER_WIDTH = window.innerWidth;
+            RENDER_HEIGHT = window.innerHeight;
+            RENDER_SCALE = 2.0;
+        </script>
         <script src="warping.js"></script>
+        <script>
+            window.addEventListener( 'resize', resize, false );
+
+            $(document).ready( function() {
+                if(Detector.webgl) {
+                    init();
+                    animate();
+                    render();
+                    $("#param_form").submit(update);
+                    $("#anim_form").submit(start_animating);
+                }
+                else {
+                    $("#canvas").html("<h1>Browser doesn't WebGL :(</h1><p>Go <a href='http://get.webgl.org'>here</a></p>");
+                }
+            });
+        </script>
     </body>
 </html>

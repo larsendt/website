@@ -6,10 +6,13 @@
         <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href="css/base.css" rel="stylesheet" type="text/css">
         <link href="css/projects.css" rel="stylesheet" type="text/css">
+        <script src="warping/Detector.js"></script>
+        <script src="warping/three.min.js"></script>
+        <script src="warping/jquery.min.js"></script>
         <meta name=viewport content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <div id="header"><span id="header-title">larsendt.com</span></div>
+        <div id="header"><span id="header-title">larsendt.com</span><span id="enable-webgl-button">Enable WebGL</span></div>
         <div id="nav">
             <div id="nav-inner">
                 <a href="/"><div class="nav-item">Main</div></a>
@@ -132,5 +135,32 @@
                 </div>
             </div>
         </div>
+        <script>
+            RENDER_CANVAS = $("#header");
+            RENDER_WIDTH = RENDER_CANVAS.width();
+            RENDER_HEIGHT = RENDER_CANVAS.height();
+            RENDER_SCALE = 0.15;
+        </script>
+        <script src="warping/warping.js"></script>
+        <script>
+            function start() {
+                if(Detector.webgl) {
+                    init();
+                    animate();
+                    render();
+                    $("#enable-webgl-button").css("display", "none");
+                    $("#header").css("background", "none");
+                }
+                else {
+                    $("#enable-webgl-button").html("No WebGL :-(");
+                }
+            }
+
+            $(document).ready( function() {
+                $("#enable-webgl-button").click(start);
+            });
+
+            window.addEventListener('resize', function() {resize(elem)}, false );
+        </script>
     </body>
 </html>

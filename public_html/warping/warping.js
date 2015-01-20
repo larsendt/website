@@ -5,8 +5,9 @@ var scene;
 var material;
 var animating = false;
 function init() {
-    var width = window.innerWidth;
-    var height = window.innerHeight;
+    var canvas = RENDER_CANVAS;
+    var width = RENDER_WIDTH;
+    var height = RENDER_HEIGHT;
 
     scene = new THREE.Scene();
     renderer = new THREE.WebGLRenderer();
@@ -15,20 +16,18 @@ function init() {
     scene.add(camera);
     camera.position.z = 1;
     renderer.setSize(width, height);
-    console.log(camera);
 
-    canvas = $("#canvas");
     canvas.append(renderer.domElement);
 
     vshader_text = $.ajax({
         type: "GET",
-        url: "warping.vert",
+        url: "/warping/warping.vert",
         async: false,
     }).responseText;
 
     fshader_text = $.ajax({
         type: "GET",
-        url: "warping.frag",
+        url: "/warping/warping.frag",
         async: false,
     }).responseText;
 
@@ -36,8 +35,8 @@ function init() {
         vertexShader:   vshader_text,
         fragmentShader: fshader_text,
         uniforms: {
-            aspect: { type: "f", value: 1.0 },
-            scale: { type: "f", value: 2.0},
+            aspect: { type: "f", value: (width / height) },
+            scale: { type: "f", value: RENDER_SCALE},
             time: { type: "f", value: 0.0},
             offset: { type: "v2", value: new THREE.Vector2(0, 0)}
         }
@@ -49,11 +48,10 @@ function init() {
     scene.add(mesh);
 }
 
-window.addEventListener( 'resize', resize, false );
 
 function resize() {
-    var w = window.innerWidth;
-    var h = window.innerHeight;
+    var w = RENDER_WIDTH;
+    var h = RENDER_HEIGHT;
     material.uniforms.width = { type: "f", value: w};
     material.uniforms.height = { type: "f", value: h };
     renderer.setSize(w, h);
@@ -67,8 +65,10 @@ function render() {
 }
 
 function update() {
-    material.uniforms.aspect.value = (window.innerWidth / window.innerHeight);
-    material.uniforms.time.value += 0.02;
+    var width = RENDER_WIDTH;
+    var height = RENDER_HEIGHT;
+    material.uniforms.aspect.value = (width / height);
+    material.uniforms.time.value += 0.005;
     render();
     return false;
 }
@@ -81,7 +81,7 @@ window.requestAnimFrame = (function(){
             window.oRequestAnimationFrame      ||
             window.msRequestAnimationFrame     ||
             function( callback ){
-              window.setTimeout(callback, 1000 / 30);
+              window.setTimeout(callback, 1000 / 10);
             };
 })();
 
@@ -106,16 +106,3 @@ function start_animating() {
     animating = !animating;
     return false;
 }
-
-$(document).ready( function() {
-    if(Detector.webgl) {
-        init();
-        animate();
-        render();
-        $("#param_form").submit(update);
-        $("#anim_form").submit(start_animating);
-    }
-    else {
-        $("#canvas").html("<h1>Browser doesn't WebGL :(</h1><p>Go <a href='http://get.webgl.org'>here</a></p>");
-    }
-});
