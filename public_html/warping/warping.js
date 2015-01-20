@@ -23,12 +23,14 @@ function init() {
         type: "GET",
         url: "/warping/warping.vert",
         async: false,
+        cache: false,
     }).responseText;
 
     fshader_text = $.ajax({
         type: "GET",
         url: "/warping/warping.frag",
         async: false,
+        cache: false,
     }).responseText;
 
     material = new THREE.ShaderMaterial({
