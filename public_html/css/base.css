@@ -10,7 +10,7 @@ body {
     background-color: #455A64;
     background: url(/img/header2.png);
     border-bottom: #263238;
-    height: 57px;
+    height: 56px;
 }
 
 #header canvas {
@@ -29,8 +29,8 @@ body {
     color: #fff;
     opacity: 0.9;
     padding-left: 30px;
-    height: 57px;
-    line-height: 57px;
+    height: 56px;
+    line-height: 56px;
 }
 
 #enable-webgl-button {
