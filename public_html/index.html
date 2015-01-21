@@ -83,7 +83,10 @@
                 $("#enable-webgl-button").click(start);
             });
 
-            window.addEventListener('resize', function() {resize(elem)}, false );
+            window.addEventListener('resize', function() {
+                    RENDER_WIDTH = RENDER_CANVAS.width();
+                    RENDER_HEIGHT = RENDER_CANVAS.height();
+                    resize();}, false);
         </script>
     </body>
 </html>
