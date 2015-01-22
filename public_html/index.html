@@ -58,19 +58,12 @@
                 </div>
             </div>
         </div>
-        <script>
-            RENDER_CANVAS = $("#header");
-            RENDER_WIDTH = RENDER_CANVAS.width();
-            RENDER_HEIGHT = RENDER_CANVAS.height();
-            RENDER_SCALE = 0.15;
-        </script>
-        <script src="warping/warping.js"></script>
+        <script src="webwarping.js"></script>
         <script>
             function start() {
                 if(Detector.webgl) {
-                    init();
-                    animate();
-                    render();
+                    var w = new Warping($("#header"), 0.15);
+                    w.animate();
                     $("#enable-webgl-button").css("display", "none");
                     $("#header").css("background", "none");
                 }
