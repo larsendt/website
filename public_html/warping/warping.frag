@@ -119,6 +119,9 @@ float snoise(vec3 v)
 
 uniform float time;
 uniform vec2 offset;
+uniform float fbm_iterations;
+uniform vec4 color1;
+uniform vec4 color2;
 
 float fbm(vec2 pos)
 {
@@ -126,12 +129,14 @@ float fbm(vec2 pos)
     float base = 0.75;
     float y = pos.y * base;
     float x = pos.x * base;
-    float n = 1.0 * snoise(vec3(1.0 * x, 1.0 * y, 0.5 * t));
-    n += 0.5 * (snoise(vec3(2.0 * x, 2.0 * y, 1.0 * t)));
-    n += 0.25 * (snoise(vec3(4.0 * x, 4.0 * y, 2.0 * t)));
-    n += 0.125 * (snoise(vec3(8.0 * x, 8.0 * y, 3.0 * t)));
-    n += 0.0625 * (snoise(vec3(16.0 * x, 16.0 * y, 5.0 * t)));
-    n += 0.03125 * (snoise(vec3(32.0 * x, 32.0 * y, 6.0 * t)));
+    float n = 0;
+    for(float i = 0; i < fbm_iterations; i++) {
+        float p = pow(2, -i);
+        float xw = pow(2, i);
+        float yw = pow(2, i);
+        float tw = i+1;
+        n += p * snoise(vec3(xw * x, yw * y, tw * t));
+    }
     n = (n + 1.0) / 2.0;
     return n * 0.7;
 }
@@ -143,8 +148,6 @@ vec4 getColor(vec2 p)
     vec2 q = vec2(qval);
     float n = fbm(p + (q*2.0));
 
-    vec4 color1 = vec4(1.0, 0.5, 0.0, 1.0);
-    vec4 color2 = vec4(0.0, 0.3, 0.7, 1.0);
     vec4 pcolor = color1*7.0;
     vec4 qcolor = mix(color2, pcolor, q.x * q.y);
 

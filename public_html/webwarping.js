@@ -20,6 +20,12 @@ function Warping(canvas, scale) {
     this._scene = null;
     this._material = null;
     this._start_time = 0;
+    this._frames_this_second = 0;
+    this._frame_counter_start = 0;
+    this._frame_rate = 0;
+    
+    // shader uniforms
+    
 
     this._init = function() {
         this._scene = new THREE.Scene();
@@ -71,7 +77,7 @@ function Warping(canvas, scale) {
         this._height = this._canvas.height();
         var w = this._width;
         var h = this._height;
-        this._material.uniforms.width = { type: "f", value: w};
+        this._material.uniforms.width = { type: "f", value: w };
         this._material.uniforms.height = { type: "f", value: h };
         this._renderer.setSize(w, h);
         this._camera.aspect = w / h;
@@ -81,6 +87,14 @@ function Warping(canvas, scale) {
 
 
     this._render = function() {
+        this._frames_this_second += 1;
+        var now = new Date().getTime();
+        if(new Date().getTime() - this._frame_counter_start >= 1000) {
+            this._frame_rate = this._frames_this_second / ((now - this._frame_counter_start) / 1000);
+            this._frames_this_second = 0;
+            this._frame_counter_start = now;
+            $("#fps-counter").html("FPS: " + Number(this._frame_rate).toFixed(1));
+        }
         this._renderer.render(this._scene, this._camera);
     }
 
@@ -90,6 +104,10 @@ function Warping(canvas, scale) {
         this._material.uniforms.time.value = ((new Date().getTime()) - this._start_time) / 2000;
         this._render();
         requestAnimFrame(function() {this.animate()}.bind(this));
+    }
+
+    this.framerate = function() {
+        return this._frame_rate; 
     }
 
     this._init();
