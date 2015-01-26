@@ -10,6 +10,7 @@
         <script src="warping/Detector.js"></script>
         <script src="warping/three.min.js"></script>
         <script src="warping/jquery.min.js"></script>
+        <script src="js/mobiledetection.js"></script>
         <meta name=viewport content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -79,6 +80,10 @@
             $(document).ready( function() {
                 $("#enable-webgl-button").click(start);
             });
+
+            if(!is_mobile()) {
+                start();
+            }
 
             window.addEventListener('resize', function() {
                     RENDER_WIDTH = RENDER_CANVAS.width();
