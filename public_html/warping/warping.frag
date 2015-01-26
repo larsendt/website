@@ -119,7 +119,7 @@ float snoise(vec3 v)
 
 uniform float time;
 uniform vec2 offset;
-uniform float fbm_iterations;
+const float fbm_iterations = 6.0;
 uniform vec4 color1;
 uniform vec4 color2;
 
@@ -129,12 +129,12 @@ float fbm(vec2 pos)
     float base = 0.75;
     float y = pos.y * base;
     float x = pos.x * base;
-    float n = 0;
-    for(float i = 0; i < fbm_iterations; i++) {
-        float p = pow(2, -i);
-        float xw = pow(2, i);
-        float yw = pow(2, i);
-        float tw = i+1;
+    float n = 0.0;
+    for(float i = 0.0; i < fbm_iterations; i++) {
+        float p = pow(2.0, -i);
+        float xw = pow(2.0, i);
+        float yw = pow(2.0, i);
+        float tw = i + 1.0;
         n += p * snoise(vec3(xw * x, yw * y, tw * t));
     }
     n = (n + 1.0) / 2.0;

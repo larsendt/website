@@ -25,6 +25,8 @@ function Warping(canvas, scale) {
     this._frame_rate = 0;
     
     // shader uniforms
+    this._color1 = new THREE.Vector4(1.0, 0.5, 0.0, 1.0);
+    this._color2 = new THREE.Vector4(0.0, 0.3, 0.7, 1.0);
     
 
     this._init = function() {
@@ -53,14 +55,18 @@ function Warping(canvas, scale) {
             cache: false,
         }).responseText;
 
+        console.log(this._color2);
+
         this._material = new THREE.ShaderMaterial({
             vertexShader:   vshader_text,
             fragmentShader: fshader_text,
             uniforms: {
                 aspect: { type: "f", value: (this._width / this._height) },
-                scale: { type: "f", value: this._scale},
-                time: { type: "f", value: 0.0},
-                offset: { type: "v2", value: new THREE.Vector2(0, 0)}
+                scale: { type: "f", value: this._scale },
+                time: { type: "f", value: 0.0 },
+                offset: { type: "v2", value: new THREE.Vector2(0, 0) },
+                color1: { type: "v4", value: this._color1 },
+                color2: { type: "v4", value: this._color2 },
             }
         });
 
