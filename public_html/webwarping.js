@@ -23,6 +23,7 @@ function Warping(canvas, scale) {
     this._frames_this_second = 0;
     this._frame_counter_start = 0;
     this._frame_rate = 0;
+    this._running = true;
     
     // shader uniforms
     this._color1 = new THREE.Vector4(1.0, 0.5, 0.0, 1.0);
@@ -55,8 +56,6 @@ function Warping(canvas, scale) {
             cache: false,
         }).responseText;
 
-        console.log(this._color2);
-
         this._material = new THREE.ShaderMaterial({
             vertexShader:   vshader_text,
             fragmentShader: fshader_text,
@@ -78,7 +77,7 @@ function Warping(canvas, scale) {
         this._start_time = new Date().getTime();
     }
 
-    this._resize = function() {
+    this.resize = function() {
         this._width = this._canvas.width();
         this._height = this._canvas.height();
         var w = this._width;
@@ -89,6 +88,12 @@ function Warping(canvas, scale) {
         this._camera.aspect = w / h;
         this._camera.updateProjectionMatrix();
         this._render();
+    }
+
+
+    this.destroy = function() {
+        this._running = false;
+        this._canvas.get(0).removeChild(this._renderer.domElement);
     }
 
 
@@ -106,6 +111,9 @@ function Warping(canvas, scale) {
 
 
     this.animate = function() {
+        if(!this._running) {
+            return;
+        }
         this._material.uniforms.aspect.value = (this._width / this._height);
         this._material.uniforms.time.value = ((new Date().getTime()) - this._start_time) / 2000;
         this._render();

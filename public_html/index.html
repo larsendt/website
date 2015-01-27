@@ -65,12 +65,22 @@
         </div>
         <script src="webwarping.js"></script>
         <script>
+            var warp = null;
             function start() {
                 if(Detector.webgl) {
-                    var w = new Warping($("#header"), 0.15);
-                    w.animate();
-                    $("#enable-webgl-button").css("display", "none");
-                    $("#header").css("background", "none");
+                    if(warp != null) {
+                        warp.destroy();
+                        $("#enable-webgl-button").html("Start WebGL");
+                        $("#header").css("background", "url(/img/header2.png)");
+                        warp = null;
+                    }
+                    else {
+                        warp = new Warping($("#header"), 0.15);
+                        warp.animate();
+                        window.addEventListener('resize', function() { warp.resize(); }, false);
+                        $("#enable-webgl-button").html("Stop WebGL");
+                        $("#header").css("background", "none");
+                    }
                 }
                 else {
                     $("#enable-webgl-button").html("No WebGL :-(");
@@ -84,11 +94,6 @@
             if(!is_mobile()) {
                 start();
             }
-
-            window.addEventListener('resize', function() {
-                    RENDER_WIDTH = RENDER_CANVAS.width();
-                    RENDER_HEIGHT = RENDER_CANVAS.height();
-                    resize();}, false);
         </script>
     </body>
 </html>
