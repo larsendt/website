@@ -7,7 +7,6 @@
 <style type="text/css">
     body {
         font-family: 'Gentium Book Basic', serif;
-        background-color: #333;
     }
 
     h1 {
@@ -22,20 +21,21 @@
         color: #111;
         margin: auto;
         max-width: 800px;
-        background-color: #eee;
-        padding: 15px;
-        border-radius: 3px;
+        padding: 10px;
+        text-align: justify;
+        line-height: 1.7;
     }
 
     .photo-wrap {
-        max-width: 80%;
+        max-width: 90%;
         margin: auto;
         text-align: center;
-        border: 1px solid #aaa;
-        border-radius: 2px;
+        margin-bottom: 50px;
+        margin-top: 50px;
+        padding: 10px;
         background-color: #ccc;
-        margin-bottom: 25px;
-        padding: 10px
+        border: 1px solid #777;
+        border-radius: 2px;
     }
 
     .photo {
@@ -50,26 +50,27 @@
 </head>
 <body>
 <div class="article-wrap">
-    <h1>Forge Project</h1>
+    <h1>Building a Forge</h1>
     <h2>Intro</h2>
     <p>Motivated by 
     <a href="http://hackaday.com/2013/07/28/propane-forge-built-from-a-soup-can/">this Hackaday post</a>.
     </p>
     <h2>The Forge Casing</h2>
     <p>
-        6 inch steel pipe instead of soup can. 1 inch burner inlet [Figure 1]. Legs welded
-        so that the burner is mounted horizontally [Figure 2].
+        6 inch diameter steel pipe instead of a soup can, cut to a length of 1 foot.
+        1 1/4 inch burner inlet [Figure 1] (eventual inner diameter of 1 inch). 
+        Legs welded so that the burner is mounted horizontally [Figure 2].
     </p>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/drilled_forge.jpg">
+        <img class="photo" src="img/forge/shrunk/drilled_forge.jpg">
         <div class="caption">Figure 1: Drilling the forge casing</div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/welds.jpg">
+        <img class="photo" src="img/forge/shrunk/welds.jpg">
         <div class="caption">Figure 2: Legs and burner attachment welded</div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/burner_attachment.jpg">
+        <img class="photo" src="img/forge/shrunk/burner_attachment.jpg">
         <div class="caption">Figure 3: Attachment point for burner</div>
     </div>
     <h2>The Burner</h2>
@@ -78,63 +79,181 @@
         <a href="http://www.zoellerforge.com/zburner.html">
             http://www.zoellerforge.com/zburner.html
         </a>
-        Originally used 1/32nd" welding tip for gas outlet, proved to be too
-        small for good gas flow [Figure 6]
+        Originally used a 1/32nd" (???) welding tip for gas outlet, proved to be too
+        small for good gas flow [Figure 6]. Ended up drilling a 1/16th" hole
+        in a brass cap, which ended up working <i>much</i> better [Figure 10].
     </p>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/burner_internals.jpg">
+        <img class="photo" src="img/forge/shrunk/burner_internals.jpg">
         <div class="caption">
             Figure 4: Burner internals
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/burner_diagram.jpg">
+        <img class="photo" src="img/forge/shrunk/burner_diagram.jpg">
         <div class="caption">
             Figure 5: Burner diagram 
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/weak_burner.jpg">
+        <img class="photo" src="img/forge/shrunk/weak_burner.jpg">
         <div class="caption">
             Figure 6: Testing the first iteration of the burner - the flame is pretty weak
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/weak_burner_in_forge.jpg">
+        <img class="photo" src="img/forge/shrunk/weak_burner_in_forge.jpg">
         <div class="caption">
             Figure 7: First iteration of the burner attached to the forge casing
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/weak_burner_in_forge2.jpg">
+        <img class="photo" src="img/forge/shrunk/weak_burner_in_forge2.jpg">
         <div class="caption">
             Figure 8: First iteration of the burner attached to the forge casing (again)
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/gas_outlet_comparison.jpg">
+        <img class="photo" src="img/forge/shrunk/gas_outlet_comparison.jpg">
         <div class="caption">
             Figure 9: Comparison of the new and old gas outlets
         </div>
     </div>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/burner_fixed.jpg">
+        <img class="photo" src="img/forge/shrunk/burner_fixed.jpg">
         <div class="caption">
             Figure 10: Fixed burner! Look at that flame... 
         </div>
     </div>
-    <h2>Pouring the Forge Insulation</h2>
+    <h2>Forge Insulation</h2>
+    <p>
+    The original Hackaday post that inspired this project used a mixture of 
+    sand and plaster. While it appears that this works fine as an insulation
+    medium, I expect that the longevity would be pretty poor. Instead, we
+    went the route of high-temperature cement. The first thing we tried was
+    <a href="http://www.homedepot.com/p/Hercules-1-2-gal-Furnace-Stove-Cement-35515/202078154">
+    a high temperature furnace cement from Home Depot</a>. 
+    </p>
+    <p>
+    When we cracked the buckets open, we realized that rather than being a 
+    viscous liquid, it was more the consistency of smoothly ground peanut
+    butter. I went about jamming it in the form anyway, but about 3/4ths of the
+    way though, the base of our form started to collapse. We decided to bail
+    and pull all the cement out rather than try to recover. This turned out
+    to be an excellent idea, because we would have been stuck with whatever
+    final form the cement ended up in. Turns out, it dries rather like a 
+    strong epoxy, which makes it nearly impossible to work with after it's
+    dried.
+    </p>
     <div class="photo-wrap">
-        <img class="photo" src="img/forge/failed_pour.jpg">
+        <img class="photo" src="img/forge/shrunk/failed_pour.jpg">
         <div class="caption">
             Figure 11: First attempt at pouring the forge cement
         </div>
     </div>
-    <p>Needed - Link of bad cement</p>
-    <p>Needed - Photo of good pour</p>
+
+    <p>
+    Unfortunately, we didn't get any good pictures of the first "pour" 
+    (it was more like jamming peanut butter in with a spatula), because we
+    both were covered in the cement. Figure 11 shows the form that eventually
+    collapsed on us. We took a long sheet of aluminum (fairly thick), and 
+    rolled it up to the right diameter so that we had two layers. We figured
+    the double layer would be strong enough, which technically it was. 
+    What we didn't anticipate was the aluminum curling up even further as the
+    pressure from the cement grew, causing the diameter of our form to shrink.
+    When we realized the form was collapsing we made a snap judgement,
+    pulled the form out and scraped all the cement back into the buckets.
+    </p>
+
+    <div class="photo-wrap">
+        <img class="photo" src="img/forge/shrunk/poured_insulation1.jpg">
+        <div class="caption">
+            Figure 12: Second attempt with different cement - much better!
+        </div>
+    </div>
+    <p>
+    We switched to a more standard dry-mix cement that is rated for high 
+    temperatures. Also not pictured is our upgraded form (I forgot to grab a
+    photo, sorry). We used a 3 inch OD plastic pipe wrapped first in 1/4 inch
+    of foam padding and then saran wrap for easy removal. The total outer diameter
+    was almost exactly 3.5 inches, exactly what we were aiming for. As Figure 12 shows,
+    it worked great! We did file down those rough edges a bit and ground off the 
+    cement that had slopped over the edge.
+    </p>
+
     <p>Needed - Link of good cement</p>
-    <p>Needed - Photo of working forge off</p>
-    <p>Needed - Photo of working forge hot</p>
+
+    <div class="photo-wrap">
+        <img class="photo" src="img/forge/shrunk/insulation_with_burner.jpg">
+        <div class="caption">
+            Figure 13: All hooked up, ready to light!
+        </div>
+    </div>
+    <div class="photo-wrap">
+        <img class="photo" src="img/forge/shrunk/insulation_with_burner2.jpg">
+        <div class="caption">
+            Figure 14: Second angle before lighting
+        </div>
+    </div>
+
+    <p>
+    The big moment! About to turn it on! You can see our final planned setup
+    (that may yet change). The gas pipe is angled back, which we chose to do 
+    because the end that it's angled toward will be covered with a fire brick
+    when the forge is running at full steam.
+    </p>
+
+    <div class="photo-wrap">
+        <img class="photo" src="img/forge/shrunk/flame_with_insulation.jpg">
+        <div class="caption">
+            Figure 16: We have fire!
+        </div>
+    </div>
+
+    <p>
+    It lit! Nice big "whomp" of flame when it started up.
+    <p>
+
+    <div class="photo-wrap">
+        <iframe width="100%" height="480" src="https://www.youtube.com/embed/R4klCwmrZBk" frameborder="0" allowfullscreen></iframe>
+        <div class="caption">
+            Figure 17: Hmm. The flame is kinda weak... We should be hearing a solid roar.
+        </div>
+    </div>
+    
+    <p>
+    As you can see in Figure 17, that's not a terribly satisfying forge flame.
+    We should have a roaring burning blue flame that's mostly contained to the 
+    insulated chamber, not slow yellow-ish flames coming up and out. Do we have
+    insufficient gas pressure? Do we have insufficient airflow? It's hard to
+    see in the video, but close examination showed that about 90% of the
+    combustion was occuring outside the main chamber. It was definitely looking
+    like airflow problems.
+    </p>
+
+
+    <div class="photo-wrap">
+        <img class="photo" src="img/forge/shrunk/flame_with_insulation2.jpg">
+        <div class="caption">
+            Figure 18: More weak flame
+        </div>
+    </div>
+
+    <div class="photo-wrap">
+        <iframe width="100%" height="480" src="https://www.youtube.com/embed/idXyxZgJLGU" frameborder="0" allowfullscreen></iframe>
+        <div class="caption">
+            Figure 19: Yep, definitely an airflow problem.
+        </div>
+    </div>
+
+    <p>
+    Given that we were likely seeing poor airflow, we decided to fire up the
+    air compressor. You can see the very satisfying results in Figure 19. 
+    The sound in the video really overstates how much air we were giving the 
+    burner. We barely had to feed it any air to get a nice deep roaring flame.
+    I could have probably produced similar results by lightly blowing into the
+    air inlet.
+    </p>
 </div>
 
 </body>
